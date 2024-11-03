@@ -1,5 +1,5 @@
 import express from "express";
-import multer from "multer";
+import upload from "../config/multer.js";
 import {
   getCards,
   createCard,
@@ -7,12 +7,6 @@ import {
 } from "../controllers/cardController.js";
 
 const router = express.Router();
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
-});
-const upload = multer({ storage });
 
 // Define routes
 router.get("/", getCards); // Get all cards

@@ -1,4 +1,5 @@
 import Card from "../models/Card.js";
+import cloudinary from "../config/cloudinary.js";
 
 // Get all cards
 export const getCards = async (req, res) => {
@@ -14,16 +15,18 @@ export const getCards = async (req, res) => {
 export const createCard = async (req, res) => {
   try {
     const { title } = req.body;
-    const imageUrl = req.file ? req.file.path : null;
+    if (!req.file) res.status(400).json("Image file is required!");
 
-    if (!imageUrl) {
-      return res.status(400).json({ error: "Image file is required" });
-    }
+    cloudinary.uploader
+      .upload_stream({ resource_type: "auto" }, async (error, result) => {
+        if (error) return res.status(500).json("Failed to upload image");
 
-    const card = new Card({ imageUrl, title });
-    await card.save();
+        // Save image url in db
+        await Card.create({ title, imageUrl: result.secure_url });
 
-    res.status(201).json({ message: "Card created successfully!" });
+        res.status(201).json({ message: "Card created successfully!" });
+      })
+      .end(req.file.buffer);
   } catch (err) {
     res.status(500).json({ error: "Failed to create card" });
   }
