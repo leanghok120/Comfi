@@ -18,14 +18,17 @@ export const createCard = async (req, res) => {
     if (!req.file) res.status(400).json("Image file is required!");
 
     cloudinary.uploader
-      .upload_stream({ resource_type: "auto" }, async (error, result) => {
-        if (error) return res.status(500).json("Failed to upload image");
+      .upload_stream(
+        { resource_type: "auto", folder: "comfi" },
+        async (error, result) => {
+          if (error) return res.status(500).json("Failed to upload image");
 
-        // Save image url in db
-        await Card.create({ title, imageUrl: result.secure_url });
+          // Save image url in db
+          await Card.create({ title, imageUrl: result.secure_url });
 
-        res.status(201).json({ message: "Card created successfully!" });
-      })
+          res.status(201).json({ message: "Card created successfully!" });
+        },
+      )
       .end(req.file.buffer);
   } catch (err) {
     res.status(500).json({ error: "Failed to create card" });
