@@ -18,11 +18,13 @@ export default function Signup() {
           type="text"
           placeholder="Username"
           className="input input-bordered w-full max-w-xs"
+          required="true"
         />
         <input
           type="password"
           placeholder="Password"
           className="input input-bordered w-full max-w-xs"
+          required="true"
         />
         <button className="btn btn-primary">Signup</button>
       </form>
