@@ -24,7 +24,11 @@ export const createCard = async (req, res) => {
           if (error) return res.status(500).json("Failed to upload image");
 
           // Save image url in db
-          await Card.create({ title, imageUrl: result.secure_url });
+          await Card.create({
+            title,
+            imageUrl: result.secure_url,
+            publicId: result.public_id,
+          });
 
           res.status(201).json({ message: "Card created successfully!" });
         },
@@ -44,6 +48,11 @@ export const deleteCard = async (req, res) => {
     if (!card) {
       return res.status(404).json({ error: "Card not found" });
     }
+
+    await cloudinary.uploader.destroy(card.publicId, (error, result) => {
+      if (error)
+        return res.status(500).json({ message: "Failed to delete image" });
+    });
 
     await Card.deleteOne(card);
     res.json({ message: "Card removed successfully!" });
