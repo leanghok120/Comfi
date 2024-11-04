@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   function handleSubmit(e) {
@@ -27,6 +28,9 @@ export default function Login() {
           required="true"
         />
         <button className="btn btn-primary">Login</button>
+        <Link className="link mt-3" to="/signup">
+          Don't have an account?
+        </Link>
       </form>
     </div>
   );
