@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Login() {
-  function handleSubmit(e) {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassowrd] = useState("");
+  const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/login`;
+
+  async function handleSubmit(e) {
     e.preventDefault();
+    try {
+      const res = await axios.post(endpoint, { username, password });
+      localStorage.setItem("token", res.data);
+
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
@@ -18,14 +33,18 @@ export default function Login() {
         <input
           type="text"
           placeholder="Username"
+          value={username}
           className="input input-bordered w-full max-w-xs"
-          required="true"
+          onChange={(e) => setUsername(e.target.value)}
+          required={true}
         />
         <input
           type="password"
           placeholder="Password"
+          value={password}
           className="input input-bordered w-full max-w-xs"
-          required="true"
+          onChange={(e) => setPassowrd(e.target.value)}
+          required={true}
         />
         <button className="btn btn-primary">Login</button>
         <Link className="link mt-3" to="/signup">
