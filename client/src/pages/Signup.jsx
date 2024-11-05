@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
-  function handleSubmit(e) {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/signup`;
+
+  async function handleSubmit(e) {
     e.preventDefault();
+    try {
+      await axios.post(endpoint, { username, password });
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
@@ -18,14 +31,18 @@ export default function Signup() {
         <input
           type="text"
           placeholder="Username"
+          value={username}
           className="input input-bordered w-full max-w-xs"
-          required="true"
+          onChange={(e) => setUsername(e.target.value)}
+          required={true}
         />
         <input
           type="password"
           placeholder="Password"
+          value={password}
           className="input input-bordered w-full max-w-xs"
-          required="true"
+          onChange={(e) => setPassword(e.target.value)}
+          required={true}
         />
         <button className="btn btn-primary">Signup</button>
         <Link className="link mt-3" to="/login">
