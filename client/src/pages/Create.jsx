@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 
 export default function Create() {
-  function handleSubmit(e) {
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState(null);
+  const endpoint = `${import.meta.env.VITE_BACKEND_URL}/cards`;
+
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("image", image);
+
+    try {
+      await axios.post(endpoint, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
@@ -17,13 +36,18 @@ export default function Create() {
         <input
           type="text"
           placeholder="Title"
+          value={title}
           className="input input-bordered w-full max-w-xs"
-          required="true"
+          onChange={(e) => setTitle(e.target.value)}
+          required={true}
         />
         <input
           type="file"
           className="file-input file-input-bordered w-full max-w-xs"
           accept="image/*, .gif"
+          onChange={(e) => setImage(e.target.files[0])}
+          name="image"
+          required={true}
         />
         <button className="btn btn-primary">Create</button>
       </form>
