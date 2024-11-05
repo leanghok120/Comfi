@@ -3,11 +3,13 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import cardsRoute from "./routes/cardsRoute.js";
 import userRoutes from "./routes/usersRoute.js";
+import cors from "cors";
 
 const mongodbUri = process.env.MONGODB_URI;
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Connect to mongodb
 mongoose.connect(mongodbUri);

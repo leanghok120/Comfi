@@ -1,27 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 
 export default function Home() {
-  const cards = [
-    {
-      title: "House Garden",
-      imageUrl:
-        "https://res.cloudinary.com/dfqab6zje/image/upload/v1730673076/comfi/sz5uzrexvkljoehfmnge.png",
-    },
-    {
-      title: "The Wind Rises",
-      imageUrl:
-        "https://res.cloudinary.com/dfqab6zje/image/upload/v1730724309/comfi/emme4jbjeof085iipuzd.jpg",
-    },
-  ];
+  const [cards, setCards] = useState([]);
+  const endpoint = import.meta.env.VITE_BACKEND_URL;
+
+  useEffect(() => {
+    fetchCards();
+  }, []);
+
+  async function fetchCards() {
+    try {
+      const res = await axios.get(`${endpoint}/cards`);
+      setCards(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
-    <div className="flex justify-center items-start m-8">
+    <div className="flex justify-center m-8">
       <Navbar />
-      <div className="space-y-20">
+      <div className="flex flex-col items-center space-y-20">
         {cards.map((card, index) => (
           <div
-            className="max-w-3xl bg-base-200 p-5 rounded-3xl shadow-lg border-4 border-base-300"
+            className="max-w-3xl bg-base-200 p-5 rounded-3xl shadow-lg border-4 border-base-300 inline-block"
             key={index}
           >
             <img src={card.imageUrl} alt="post image" className="rounded-xl" />
