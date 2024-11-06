@@ -15,9 +15,12 @@ export default function Create() {
     formData.append("image", image);
 
     try {
+      const token = localStorage.getItem("token");
+
       await axios.post(endpoint, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          authorization: `bearer ${token}`,
         },
       });
     } catch (err) {
