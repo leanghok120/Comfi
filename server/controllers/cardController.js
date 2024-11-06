@@ -28,6 +28,7 @@ export const createCard = async (req, res) => {
             title,
             imageUrl: result.secure_url,
             publicId: result.public_id,
+            userId: req.user.id,
           });
 
           res.status(201).json({ message: "Card created successfully!" });
