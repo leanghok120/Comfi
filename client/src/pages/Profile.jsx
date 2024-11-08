@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import DeleteBtn from "../components/DeleteBtn";
+import LogoutBtn from "../components/LogoutBtn";
 
 export default function Profile() {
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/me`;
@@ -49,6 +50,7 @@ export default function Profile() {
             ))}
           </div>
         </div>
+        <LogoutBtn />
       </div>
     </div>
   );
