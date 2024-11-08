@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import DeleteBtn from "../components/DeleteBtn";
 
 export default function Profile() {
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/me`;
@@ -36,7 +37,8 @@ export default function Profile() {
           <h2 className="font-bold text-2xl">Posts</h2>
           <div className="mt-2 space-y-8">
             {posts.map((post) => (
-              <div>
+              <div className="relative" key={post._id}>
+                <DeleteBtn id={post._id} fetchUser={fetchUser} />
                 <img
                   src={post.imageUrl}
                   alt={post.title}

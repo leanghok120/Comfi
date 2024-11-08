@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/cards`;
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -23,6 +25,8 @@ export default function Create() {
           authorization: `bearer ${token}`,
         },
       });
+
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
