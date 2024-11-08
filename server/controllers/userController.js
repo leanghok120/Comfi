@@ -1,6 +1,7 @@
-import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import Card from "../models/Card.js";
+import User from "../models/User.js";
 
 async function signup(req, res) {
   try {
@@ -34,7 +35,8 @@ async function login(req, res) {
 async function getMe(req, res) {
   try {
     const user = await User.findById(req.user.id).select("-password");
-    res.json(user);
+    const posts = await Card.find({ userId: user.id });
+    res.json({ user, posts });
   } catch (err) {
     res.status(500).json(err);
   }

@@ -2,6 +2,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Create from "./pages/Create";
+import Profile from "./pages/Profile";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
     {
       path: "/create",
       element: <Create />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
     },
   ]);
 
