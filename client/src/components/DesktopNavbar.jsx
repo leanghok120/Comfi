@@ -1,6 +1,7 @@
 import React from "react";
-import { Home, Plus, User } from "lucide-react";
+import { Home, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import ProfileBtn from "./ProfileBtn";
 
 export default function DesktopNavbar() {
   return (
@@ -25,9 +26,7 @@ export default function DesktopNavbar() {
         </div>
 
         <div className="flex flex-col space-y-4 items-center">
-          <Link className="btn btn-ghost" to="/signup">
-            <User className="w-6 h-6" />
-          </Link>
+          <ProfileBtn />
         </div>
       </div>
     </div>

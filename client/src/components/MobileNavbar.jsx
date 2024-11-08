@@ -1,6 +1,7 @@
 import React from "react";
-import { Home, Plus, User } from "lucide-react";
+import { Home, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import ProfileBtn from "./ProfileBtn";
 
 export default function MobileNavbar() {
   return (
@@ -11,9 +12,7 @@ export default function MobileNavbar() {
       <Link className="btn btn-ghost" to="/create">
         <Plus className="w-6 h-6" />
       </Link>
-      <Link className="btn btn-ghost" to="/signup">
-        <User className="w-6 h-6" />
-      </Link>
+      <ProfileBtn />
     </div>
   );
 }

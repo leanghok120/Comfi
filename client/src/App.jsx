@@ -3,13 +3,18 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Create from "./pages/Create";
 import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/signup",
@@ -21,11 +26,19 @@ function App() {
     },
     {
       path: "/create",
-      element: <Create />,
+      element: (
+        <ProtectedRoute>
+          <Create />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/profile",
-      element: <Profile />,
+      element: (
+        <ProtectedRoute>
+          <Profile />
+        </ProtectedRoute>
+      ),
     },
   ]);
 
