@@ -42,7 +42,7 @@ export default function Profile() {
                   alt={post.title}
                   className="rounded-2xl w-full"
                 />
-                <h2 className="font-bold text-lg">{post.title}</h2>
+                <h2 className="font-semibold text-lg">{post.title}</h2>
               </div>
             ))}
           </div>
