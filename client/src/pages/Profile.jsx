@@ -28,7 +28,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-full">
+    <div className="flex flex-col justify-center items-center min-h-screen">
       <Navbar />
       <div className="my-10 p-10 bg-base-200 rounded-3xl w-96">
         <h1 className="text-3xl font-black">{user.username}</h1>

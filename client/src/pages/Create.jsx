@@ -29,7 +29,7 @@ export default function Create() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
+    <div className="flex flex-col justify-center items-center min-h-screen">
       <Navbar />
       <h1 className="text-5xl font-black">Create</h1>
       <form
