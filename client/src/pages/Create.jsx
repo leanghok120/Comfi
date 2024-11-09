@@ -46,6 +46,7 @@ export default function Create() {
           value={title}
           className="input input-bordered w-full max-w-xs"
           onChange={(e) => setTitle(e.target.value)}
+          maxLength="20"
           required={true}
         />
         <input
