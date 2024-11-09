@@ -22,7 +22,7 @@ export default function DeleteBtn({ id, fetchUser }) {
 
   return (
     <button
-      className="absolute top-5 right-5 text-error hover:scale-125 transition-all"
+      className="absolute top-5 right-5 text-error hover:scale-125 active:scale-150 transition-all"
       onClick={deletePost}
     >
       <X />

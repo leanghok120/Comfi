@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import DeleteBtn from "../components/DeleteBtn";
-import LogoutBtn from "../components/LogoutBtn";
+import SettingsBtn from "../components/SettingsBtn";
 
 export default function Profile() {
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/me`;
@@ -32,7 +32,8 @@ export default function Profile() {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">
       <Navbar />
-      <div className="my-10 p-10 bg-base-200 rounded-3xl w-96">
+      <div className="my-10 p-10 bg-base-200 rounded-3xl w-96 relative">
+        <SettingsBtn />
         <img
           src={user.pfp}
           alt="Profile Picture"
@@ -55,7 +56,6 @@ export default function Profile() {
             ))}
           </div>
         </div>
-        <LogoutBtn />
       </div>
     </div>
   );
