@@ -14,7 +14,7 @@ export default function SettingsBtn({ username, fetchUser }) {
     try {
       const token = localStorage.getItem("token");
       const formData = new FormData();
-      formData.append("username", username);
+      formData.append("username", newUsername);
       formData.append("pfp", newPfp);
 
       await axios.patch(endpoint, formData, {
