@@ -14,8 +14,12 @@ export default function SettingsBtn({ username, fetchUser }) {
     try {
       const token = localStorage.getItem("token");
       const formData = new FormData();
-      formData.append("username", newUsername);
-      formData.append("pfp", newPfp);
+      if (newUsername !== username) {
+        formData.append("username", newUsername);
+      }
+      if (newPfp) {
+        formData.append("pfp", newPfp);
+      }
 
       await axios.patch(endpoint, formData, {
         headers: {
@@ -58,7 +62,6 @@ export default function SettingsBtn({ username, fetchUser }) {
               accept="image/*, .gif"
               onChange={(e) => setNewPfp(e.target.files[0])}
               name="pfp"
-              required={true}
             />
             <button className="btn btn-primary">Save Changes</button>
           </form>
