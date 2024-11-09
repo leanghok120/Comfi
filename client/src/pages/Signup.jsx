@@ -8,12 +8,17 @@ export default function Signup() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/signup`;
+  const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users`;
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post(endpoint, { username, password });
+      await axios.post(`${endpoint}/signup`, { username, password });
+
+      // Login
+      const res = await axios.post(`${endpoint}/login`, { username, password });
+      localStorage.setItem("token", res.data);
+
       navigate("/profile");
     } catch (err) {
       console.error(err);
