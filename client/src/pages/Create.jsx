@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Create() {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/cards`;
   const navigate = useNavigate();
 
@@ -13,6 +14,7 @@ export default function Create() {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const token = localStorage.getItem("token");
       const formData = new FormData();
       formData.append("title", title);
@@ -28,6 +30,8 @@ export default function Create() {
       navigate("/");
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -47,6 +51,7 @@ export default function Create() {
           onChange={(e) => setTitle(e.target.value)}
           maxLength="20"
           required={true}
+          disabled={loading}
         />
         <input
           type="file"
@@ -55,8 +60,11 @@ export default function Create() {
           onChange={(e) => setImage(e.target.files[0])}
           name="image"
           required={true}
+          disabled={loading}
         />
-        <button className="btn btn-primary">Create</button>
+        <button className="btn btn-primary" disabled={loading}>
+          {loading ? <span className="loading loading-spinner"></span> : "Create"}
+        </button>
       </form>
     </div>
   );

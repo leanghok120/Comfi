@@ -8,11 +8,13 @@ export default function Signup() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users`;
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       await axios.post(`${endpoint}/signup`, { username, password });
 
       // Login
@@ -22,6 +24,8 @@ export default function Signup() {
       navigate("/");
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -41,6 +45,7 @@ export default function Signup() {
           onChange={(e) => setUsername(e.target.value)}
           maxLength="20"
           required={true}
+          disabled={loading}
         />
         <input
           type="password"
@@ -49,8 +54,11 @@ export default function Signup() {
           className="input input-bordered w-full max-w-xs"
           onChange={(e) => setPassword(e.target.value)}
           required={true}
+          disabled={loading}
         />
-        <button className="btn btn-primary">Signup</button>
+        <button className="btn btn-primary" disabled={loading}>
+          {loading ? <span className="loading loading-spinner"></span> : "Signup"}
+        </button>
         <Link className="link mt-3" to="/login">
           Already have an account?
         </Link>

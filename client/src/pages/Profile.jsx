@@ -9,6 +9,7 @@ export default function Profile() {
   const token = localStorage.getItem("token");
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchUser();
@@ -16,6 +17,7 @@ export default function Profile() {
 
   async function fetchUser() {
     try {
+      setLoading(true);
       const res = await axios.get(endpoint, {
         headers: {
           Authorization: `bearer ${token}`,
@@ -26,7 +28,18 @@ export default function Profile() {
       setPosts(res.data.posts);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen">
+        <Navbar />
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
 
   return (

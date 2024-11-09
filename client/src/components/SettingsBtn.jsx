@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Settings } from "lucide-react";
-import LogoutBtn from "./LogoutBtn";
 import axios from "axios";
+import LogoutBtn from "./LogoutBtn";
 
 export default function SettingsBtn({ username, fetchUser }) {
   const [newUsername, setNewUsername] = useState(username);
   const [newPfp, setNewPfp] = useState(null);
+  const [loading, setLoading] = useState(false);
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/me`;
 
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function SettingsBtn({ username, fetchUser }) {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const token = localStorage.getItem("token");
       const formData = new FormData();
       if (newUsername !== username) {
@@ -36,6 +38,8 @@ export default function SettingsBtn({ username, fetchUser }) {
       document.getElementById("settings-modal").close();
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -59,6 +63,7 @@ export default function SettingsBtn({ username, fetchUser }) {
               onChange={(e) => setNewUsername(e.target.value)}
               maxLength="20"
               required={true}
+              disabled={loading}
             />
             <input
               type="file"
@@ -66,8 +71,11 @@ export default function SettingsBtn({ username, fetchUser }) {
               accept="image/*, .gif"
               onChange={(e) => setNewPfp(e.target.files[0])}
               name="pfp"
+              disabled={loading}
             />
-            <button className="btn btn-primary">Save Changes</button>
+            <button className="btn btn-primary" disabled={loading}>
+              {loading ? <span className="loading loading-spinner"></span> : "Save Changes"}
+            </button>
           </form>
           <LogoutBtn />
         </div>

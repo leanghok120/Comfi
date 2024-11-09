@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default function Home() {
   const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
   const endpoint = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
@@ -12,11 +13,25 @@ export default function Home() {
 
   async function fetchCards() {
     try {
+      setLoading(true);
       const res = await axios.get(`${endpoint}/cards`);
       setCards(res.data);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex justify-center m-8">
+        <Navbar />
+        <div className="flex flex-col items-center">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      </div>
+    );
   }
 
   return (
