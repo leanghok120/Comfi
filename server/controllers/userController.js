@@ -8,8 +8,14 @@ async function signup(req, res) {
     const { username, password } = req.body;
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+    const defaultPfp =
+      "https://cdn.discordapp.com/attachments/1140732081568223272/1304596184069046406/images.png?ex=672ff760&is=672ea5e0&hm=14bbcc725548b0d5c86f5a948f2e5934deeaf70dab5f39fb2a2f9fc5036458c3&";
 
-    await User.create({ username, password: hashedPassword });
+    await User.create({
+      pfp: defaultPfp,
+      username,
+      password: hashedPassword,
+    });
     res.json("User created!");
   } catch (err) {
     res.status(500).json(err);

@@ -33,6 +33,11 @@ export default function Profile() {
     <div className="flex flex-col justify-center items-center min-h-screen">
       <Navbar />
       <div className="my-10 p-10 bg-base-200 rounded-3xl w-96">
+        <img
+          src={user.pfp}
+          alt="Profile Picture"
+          className="w-20 rounded-full"
+        />
         <h1 className="text-3xl font-black">{user.username}</h1>
         <div className="mt-8">
           <h2 className="font-bold text-2xl">Posts</h2>
