@@ -16,7 +16,7 @@ export default function Login() {
       const res = await axios.post(endpoint, { username, password });
       localStorage.setItem("token", res.data);
 
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       console.error(err);
     }

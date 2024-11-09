@@ -14,7 +14,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       await axios.post(endpoint, { username, password });
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       console.error(err);
     }
