@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Card from "../models/Card.js";
 import User from "../models/User.js";
+import cloudinary from "../config/cloudinary.js";
 
 async function signup(req, res) {
   try {
@@ -48,4 +49,30 @@ async function getMe(req, res) {
   }
 }
 
-export { signup, login, getMe };
+async function updateMe(req, res) {
+  try {
+    const { username } = req.body;
+    const id = req.user.id;
+    if (!req.file) return res.status(400).json("Pfp is required!");
+
+    cloudinary.uploader
+      .upload_stream(
+        { resource_type: "auto", folder: "comfi" },
+        async (error, result) => {
+          if (error) return res.status(500).json("Failed to upload image");
+
+          await User.findByIdAndUpdate(id, {
+            username,
+            pfp: result.secure_url,
+          });
+
+          res.json("User updated!");
+        },
+      )
+      .end(req.file.buffer);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+
+export { signup, login, getMe, updateMe };

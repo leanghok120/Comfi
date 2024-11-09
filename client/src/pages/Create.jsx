@@ -12,12 +12,11 @@ export default function Create() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("image", image);
-
     try {
       const token = localStorage.getItem("token");
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("image", image);
 
       await axios.post(endpoint, formData, {
         headers: {

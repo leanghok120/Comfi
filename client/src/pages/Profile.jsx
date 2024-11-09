@@ -33,7 +33,7 @@ export default function Profile() {
     <div className="flex flex-col justify-center items-center min-h-screen">
       <Navbar />
       <div className="my-10 p-10 bg-base-200 rounded-3xl w-96 relative">
-        <SettingsBtn />
+        <SettingsBtn username={user.username} fetchUser={fetchUser} />
         <img
           src={user.pfp}
           alt="Profile Picture"
