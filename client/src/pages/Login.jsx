@@ -36,6 +36,7 @@ export default function Login() {
           value={username}
           className="input input-bordered w-full max-w-xs"
           onChange={(e) => setUsername(e.target.value)}
+          maxLength="20"
           required={true}
         />
         <input

@@ -19,7 +19,7 @@ export default function Signup() {
       const res = await axios.post(`${endpoint}/login`, { username, password });
       localStorage.setItem("token", res.data);
 
-      navigate("/profile");
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -39,6 +39,7 @@ export default function Signup() {
           value={username}
           className="input input-bordered w-full max-w-xs"
           onChange={(e) => setUsername(e.target.value)}
+          maxLength="20"
           required={true}
         />
         <input
