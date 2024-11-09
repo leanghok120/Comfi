@@ -53,23 +53,30 @@ async function updateMe(req, res) {
   try {
     const { username } = req.body;
     const id = req.user.id;
-    if (!req.file) return res.status(400).json("Pfp is required!");
 
-    cloudinary.uploader
-      .upload_stream(
-        { resource_type: "auto", folder: "comfi" },
-        async (error, result) => {
-          if (error) return res.status(500).json("Failed to upload image");
+    if (req.file) {
+      // If a new profile picture is provided, upload it to Cloudinary
+      cloudinary.uploader
+        .upload_stream(
+          { resource_type: "auto", folder: "comfi" },
+          async (error, result) => {
+            if (error) return res.status(500).json("Failed to upload image");
 
-          await User.findByIdAndUpdate(id, {
-            username,
-            pfp: result.secure_url,
-          });
+            // Update both username and profile picture
+            await User.findByIdAndUpdate(id, {
+              username,
+              pfp: result.secure_url,
+            });
 
-          res.json("User updated!");
-        },
-      )
-      .end(req.file.buffer);
+            res.json("User updated!");
+          },
+        )
+        .end(req.file.buffer);
+    } else {
+      // If no profile picture is provided, only update the username
+      await User.findByIdAndUpdate(id, { username });
+      res.json("User updated!");
+    }
   } catch (err) {
     res.status(500).json(err);
   }

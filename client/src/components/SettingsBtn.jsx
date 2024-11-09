@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Settings } from "lucide-react";
 import LogoutBtn from "./LogoutBtn";
 import axios from "axios";
@@ -7,6 +7,10 @@ export default function SettingsBtn({ username, fetchUser }) {
   const [newUsername, setNewUsername] = useState(username);
   const [newPfp, setNewPfp] = useState(null);
   const endpoint = `${import.meta.env.VITE_BACKEND_URL}/users/me`;
+
+  useEffect(() => {
+    setNewUsername(username);
+  }, [username]);
 
   async function handleSubmit(e) {
     e.preventDefault();
