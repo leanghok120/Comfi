@@ -62,6 +62,9 @@ export default function Create() {
           required={true}
           disabled={loading}
         />
+        <p className="text-warning mb-2 font-bold">
+          Note: File needs to be less than 5mb
+        </p>
         <button className="btn btn-primary" disabled={loading}>
           {loading ? (
             <span className="loading loading-spinner"></span>
