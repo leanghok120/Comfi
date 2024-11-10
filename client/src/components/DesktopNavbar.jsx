@@ -10,7 +10,7 @@ export default function DesktopNavbar() {
         <div className="flex flex-col space-y-4 items-center">
           <Link
             className="hover:scale-125 active:scale-150 transition-all w-12"
-            to="/"
+            to="/about"
           >
             <img src="/logo.svg" alt="logo" />
           </Link>

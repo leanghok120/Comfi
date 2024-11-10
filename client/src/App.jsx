@@ -3,6 +3,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Create from "./pages/Create";
 import Profile from "./pages/Profile";
+import About from "./pages/About";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -39,6 +40,10 @@ function App() {
           <Profile />
         </ProtectedRoute>
       ),
+    },
+    {
+      path: "/about",
+      element: <About />,
     },
   ]);
 
