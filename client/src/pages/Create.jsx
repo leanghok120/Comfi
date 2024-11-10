@@ -63,7 +63,11 @@ export default function Create() {
           disabled={loading}
         />
         <button className="btn btn-primary" disabled={loading}>
-          {loading ? <span className="loading loading-spinner"></span> : "Create"}
+          {loading ? (
+            <span className="loading loading-spinner"></span>
+          ) : (
+            "Create"
+          )}
         </button>
       </form>
     </div>
