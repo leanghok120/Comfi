@@ -40,7 +40,7 @@ export default function Create() {
       <Navbar />
       <h1 className="text-5xl font-black">Create</h1>
       <form
-        className="mt-10 flex flex-col gap-2 bg-base-200 p-10 rounded-2xl"
+        className="mt-10 flex flex-col gap-2 bg-base-200 p-10 rounded-2xl motion-preset-pop"
         onSubmit={handleSubmit}
       >
         <input

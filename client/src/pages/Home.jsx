@@ -51,7 +51,7 @@ export default function Home() {
       >
         {cards.map((card, index) => (
           <div
-            className="max-w-3xl bg-base-200 p-5 rounded-3xl shadow-lg border-4 border-base-300 inline-block"
+            className="max-w-3xl bg-base-200 p-5 rounded-3xl shadow-lg border-4 border-base-300 inline-block motion-preset-fade"
             key={index}
           >
             <img
