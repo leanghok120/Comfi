@@ -3,7 +3,7 @@
 ## todo
 
 - [x] code the sidebar
-- [ ] code the home page
-- [ ] code the create page
+- [x] code the home page
+- [x] code the create page
 - [ ] setup database and data model
 - [ ] add auth
