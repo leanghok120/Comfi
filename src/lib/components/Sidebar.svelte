@@ -1,6 +1,6 @@
 <script>
-	import { HomeIcon, PlusIcon, UserRoundIcon } from 'lucide-svelte';
-	import { SignedIn, SignedOut, SignInButton, UserButton, UserProfile } from 'svelte-clerk';
+	import { HomeIcon, PlusIcon } from 'lucide-svelte';
+	import { SignedIn, SignedOut, SignInButton, UserButton } from 'svelte-clerk';
 </script>
 
 <ul class="menu fixed top-0 bottom-0 flex items-center justify-between p-3">
