@@ -8,3 +8,4 @@
 - [x] setup database and data model
 - [x] add auth
 - [ ] add posting
+- [ ] add viewing other users profile
