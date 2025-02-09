@@ -6,5 +6,5 @@
 - [x] code the home page
 - [x] code the create page
 - [x] setup database and data model
-- [ ] add auth
+- [x] add auth
 - [ ] add posting
