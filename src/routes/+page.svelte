@@ -1,4 +1,4 @@
-<div class="card bg-base-100 w-full shadow-sm">
+<div class="card border-base-200 bg-base-100 w-full border-4 shadow-sm">
 	<figure class="px-10 pt-10">
 		<img
 			src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -11,7 +11,7 @@
 	</div>
 </div>
 
-<div class="card bg-base-100 w-full shadow-sm">
+<div class="card border-base-200 bg-base-100 w-full border-4 shadow-sm">
 	<figure class="px-10 pt-10">
 		<img
 			src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -24,7 +24,7 @@
 	</div>
 </div>
 
-<div class="card bg-base-100 w-full shadow-sm">
+<div class="card border-base-200 bg-base-100 w-full border-4 shadow-sm">
 	<figure class="px-10 pt-10">
 		<img
 			src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -37,7 +37,7 @@
 	</div>
 </div>
 
-<div class="card bg-base-100 w-full shadow-sm">
+<div class="card border-base-200 bg-base-100 w-full border-4 shadow-sm">
 	<figure class="px-10 pt-10">
 		<img
 			src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
