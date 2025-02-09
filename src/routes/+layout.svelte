@@ -5,6 +5,10 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<title>comfi</title>
+</svelte:head>
+
 <div class="h-screen max-w-full">
 	<Sidebar />
 	<main class="mx-auto max-w-xl p-5">
