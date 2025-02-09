@@ -5,9 +5,9 @@
 	let { children } = $props();
 </script>
 
-<main class="h-screen max-w-full">
+<div class="h-screen max-w-full">
 	<Sidebar />
-	<main class="mx-auto max-w-3xl p-5">
+	<main class="mx-auto flex max-w-xl flex-col items-center gap-10 p-5">
 		{@render children()}
 	</main>
-</main>
+</div>
