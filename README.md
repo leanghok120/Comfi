@@ -7,3 +7,4 @@
 - [x] code the create page
 - [ ] setup database and data model
 - [ ] add auth
+- [ ] add posting
