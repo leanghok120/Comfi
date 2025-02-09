@@ -1,20 +1,23 @@
-!**/glob-import/dir/node_modules
-.DS_Store
-.idea
-.pnpm-store
-*.cpuprofile
-*.local
-*.log
-/.vscode/
-/docs/.vitepress/cache
-/packages/vite/LICENSE
-dist
-dist-ssr
-explorations
 node_modules
-playground-temp
-temp
-TODOs.md
-.eslintcache
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
 .env
-uploads/
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
