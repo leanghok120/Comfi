@@ -41,9 +41,11 @@
 	},
 	"dependencies": {
 		"@neondatabase/serverless": "^0.10.4",
+		"@uploadthing/svelte": "^7.1.5",
 		"drizzle-orm": "^0.38.4",
 		"lucide-svelte": "^0.475.0",
-		"svelte-clerk": "^0.8.0"
+		"svelte-clerk": "^0.8.0",
+		"uploadthing": "^7.4.4"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [

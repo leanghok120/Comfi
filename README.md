@@ -7,5 +7,6 @@
 - [x] code the create page
 - [x] setup database and data model
 - [x] add auth
-- [ ] add posting
+- [x] add posting
 - [ ] add viewing other users profile
+- [ ] clean up auth and ui
