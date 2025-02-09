@@ -8,5 +8,6 @@
 - [x] setup database and data model
 - [x] add auth
 - [x] add posting
+- [ ] add userId to posts
 - [ ] add viewing other users profile
 - [ ] clean up auth and ui
