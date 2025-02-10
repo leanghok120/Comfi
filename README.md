@@ -17,5 +17,6 @@
 
 - removed clerk completely
 - [ ] code the frontend for profile page
-- [ ] code the frontend for signin/signup page
+- [x] code the frontend for signin/signup page
 - [ ] connect frontend to backend
+- github oauth is working but user is not being saved to db
