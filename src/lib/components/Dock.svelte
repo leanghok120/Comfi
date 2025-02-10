@@ -1,6 +1,5 @@
 <script>
-	import { HomeIcon, PlusIcon } from 'lucide-svelte';
-	import { SignedIn, SignedOut, SignInButton, UserButton } from 'svelte-clerk';
+	import { HomeIcon, PlusIcon, UserRoundIcon } from 'lucide-svelte';
 </script>
 
 <div class="dock dock-md">
@@ -14,13 +13,8 @@
 		<span class="dock-label">Create</span>
 	</a>
 
-	<div class="dock-label">
-		<SignedOut>
-			<SignInButton />
-		</SignedOut>
-		<SignedIn>
-			<UserButton />
-		</SignedIn>
+	<a href="/profile" class="dock-label">
+		<UserRoundIcon />
 		<span class="dock-label">Profile</span>
-	</div>
+	</a>
 </div>

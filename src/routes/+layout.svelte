@@ -2,7 +2,6 @@
 	import '../app.css';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import Dock from '$lib/components/Dock.svelte';
-	import { ClerkProvider } from 'svelte-clerk';
 	import { onMount } from 'svelte';
 
 	let { children } = $props();
@@ -26,15 +25,13 @@
 	<title>comfi</title>
 </svelte:head>
 
-<ClerkProvider>
-	<div class="min-h-screen max-w-full">
-		{#if isMobile}
-			<Dock />
-		{:else}
-			<Sidebar />
-		{/if}
-		<main class="mx-auto min-h-full max-w-xl p-5">
-			{@render children()}
-		</main>
-	</div>
-</ClerkProvider>
+<div class="min-h-screen max-w-full">
+	{#if isMobile}
+		<Dock />
+	{:else}
+		<Sidebar />
+	{/if}
+	<main class="mx-auto min-h-full max-w-xl p-5">
+		{@render children()}
+	</main>
+</div>
