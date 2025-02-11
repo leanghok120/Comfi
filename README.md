@@ -10,12 +10,6 @@
 - [x] add posting
 - [x] use better-auth instead of clerk
 - [x] add userId to posts
+- [ ] add editing own profile
 - [ ] add viewing other users profile
 - [ ] clean up auth and ui
-
-## notes
-
-- removed clerk completely
-- [ ] code the frontend for profile page
-- [x] code the frontend for signin/signup page
-- [ ] connect frontend to backend
