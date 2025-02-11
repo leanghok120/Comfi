@@ -4,7 +4,11 @@ export const post = pgTable('post', {
 	id: serial('id').primaryKey(),
 	title: text('title'),
 	imageUrl: text('imageUrl').notNull(),
-	createdAt: timestamp('createdAt').defaultNow()
+	createdAt: timestamp('createdAt').defaultNow(),
+	userId: text('user_id')
+		.notNull()
+		.default('OfASf10VoDmLBhpSajsHJgaIHDIj3zXd')
+		.references(() => user.id)
 });
 
 // better-auth stuff
