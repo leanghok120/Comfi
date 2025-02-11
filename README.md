@@ -8,8 +8,8 @@
 - [x] setup database and data model
 - [x] add auth
 - [x] add posting
-- [ ] use better-auth instead of clerk
-- [ ] add userId to posts
+- [x] use better-auth instead of clerk
+- [x] add userId to posts
 - [ ] add viewing other users profile
 - [ ] clean up auth and ui
 
@@ -19,4 +19,3 @@
 - [ ] code the frontend for profile page
 - [x] code the frontend for signin/signup page
 - [ ] connect frontend to backend
-- github oauth is working but user is not being saved to db
