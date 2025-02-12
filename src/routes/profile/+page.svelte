@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<h1 class="text-xl font-bold">{$session.data?.user.name}</h1>
-			<p>bio: ill implement this later lolol</p>
+			<p>{$session.data?.user.bio}</p>
 			<h2 class="mt-3 text-xl font-bold">Posts</h2>
 			<div class="posts space-y-5">
 				{#each data.posts as post}

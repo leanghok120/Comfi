@@ -12,5 +12,15 @@ export const auth = betterAuth({
 			clientId: env.GITHUB_CLIENT_ID,
 			clientSecret: env.GITHUB_CLIENT_SECRET
 		}
+	},
+	user: {
+		additionalFields: {
+			bio: {
+				type: 'string',
+				required: false,
+				defaultValue: 'a very cool bio',
+				input: true
+			}
+		}
 	}
 });

@@ -10,6 +10,7 @@
 - [x] add posting
 - [x] use better-auth instead of clerk
 - [x] add userId to posts
+- [x] add bio
 - [ ] add editing own profile
 - [ ] add viewing other users profile
 - [ ] clean up auth and ui

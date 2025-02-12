@@ -15,6 +15,7 @@ export const post = pgTable('post', {
 export const user = pgTable('user', {
 	id: text('id').primaryKey(),
 	name: text('name').notNull(),
+	bio: text('bio').notNull().default('a very cool bio'),
 	email: text('email').notNull().unique(),
 	emailVerified: boolean('email_verified').notNull(),
 	image: text('image'),
