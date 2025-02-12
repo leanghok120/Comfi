@@ -1,13 +1,35 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { authClient } from '$lib/auth-client';
+	import Modal from '$lib/components/Modal.svelte';
+	import { SettingsIcon } from 'lucide-svelte';
 
 	const { data } = $props();
 	const session = authClient.useSession();
+
+	let showModal = $state(false);
 </script>
 
 <div class="flex min-h-screen items-center justify-center">
 	<div class="card bg-base-100 card-md w-96 shadow-sm">
-		<div class="card-body">
+		<div class="card-body relative">
+			<button class="btn btn-ghost absolute top-2 right-2" onclick={() => (showModal = true)}
+				><SettingsIcon /></button
+			>
+			<Modal bind:showModal>
+				<button
+					class="btn btn-error"
+					onclick={async () => {
+						await authClient.signOut({
+							fetchOptions: {
+								onSuccess: () => {
+									goto('signin');
+								}
+							}
+						});
+					}}>Logout</button
+				>
+			</Modal>
 			<div class="avatar">
 				<div class="w-20 rounded-xl">
 					<img src={$session.data?.user.image} alt="profile" />
