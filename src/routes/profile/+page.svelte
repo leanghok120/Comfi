@@ -15,6 +15,9 @@
 			</div>
 			<h1 class="text-xl font-bold">{$session.data?.user.name}</h1>
 			<p>{$session.data?.user.bio}</p>
+			{#if $session.data?.user.email === 'leanghokoeng5@gmail.com'}
+				<div class="badge badge-primary">comfi developer</div>
+			{/if}
 			<h2 class="mt-3 text-xl font-bold">Posts</h2>
 			<div class="posts space-y-5">
 				{#each data.posts as post}
