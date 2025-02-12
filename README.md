@@ -14,3 +14,7 @@
 - [ ] add editing own profile
 - [ ] add viewing other users profile
 - [ ] clean up auth and ui
+
+## notes
+
+- optimze images
