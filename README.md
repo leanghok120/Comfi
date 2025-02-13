@@ -18,4 +18,4 @@
 
 ## notes
 
-- optimze images
+- edit profile picture
