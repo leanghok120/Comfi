@@ -13,6 +13,7 @@
 - [x] add bio
 - [ ] add editing own profile
 - [ ] add viewing other users profile
+- [ ] lowercasemaxxing
 - [ ] clean up auth and ui
 
 ## notes

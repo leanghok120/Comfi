@@ -8,6 +8,9 @@
 	const session = authClient.useSession();
 
 	let showModal = $state(false);
+
+	let name = $state($session.data?.user.name);
+	let bio = $state($session.data?.user.bio);
 </script>
 
 <div class="flex min-h-screen items-center justify-center">
@@ -17,8 +20,31 @@
 				><SettingsIcon /></button
 			>
 			<Modal bind:showModal>
+				<h1 class="text-2xl font-bold">Settings</h1>
+				<h2 class="mt-4 text-lg font-bold">Profile</h2>
+				<form
+					class="mt-2 flex flex-col gap-4"
+					onsubmit={async () => {
+						await authClient.updateUser({
+							name,
+							bio
+						});
+					}}
+				>
+					<label>
+						<span class="label">name</span>
+						<input type="text" placeholder="name" class="input w-full" bind:value={name} />
+					</label>
+					<label>
+						<span class="label">bio</span>
+						<input type="text" placeholder="bio" class="input w-full" bind:value={bio} />
+					</label>
+					<button class="btn btn-primary">save</button>
+				</form>
+				<div class="divider"></div>
+				<h2 class="mt-4 text-lg font-bold">Danger</h2>
 				<button
-					class="btn btn-error"
+					class="btn btn-error mt-4"
 					onclick={async () => {
 						await authClient.signOut({
 							fetchOptions: {
@@ -27,7 +53,7 @@
 								}
 							}
 						});
-					}}>Logout</button
+					}}>logout</button
 				>
 			</Modal>
 			<div class="avatar">
@@ -35,8 +61,8 @@
 					<img src={$session.data?.user.image} alt="profile" />
 				</div>
 			</div>
-			<h1 class="text-xl font-bold">{$session.data?.user.name}</h1>
-			<p>{$session.data?.user.bio}</p>
+			<h1 class="text-xl font-bold">{name}</h1>
+			<p>{bio}</p>
 			{#if $session.data?.user.email === 'leanghokoeng5@gmail.com'}
 				<div class="badge badge-primary">comfi developer</div>
 			{/if}
