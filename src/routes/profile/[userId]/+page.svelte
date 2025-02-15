@@ -95,8 +95,12 @@
 			</div>
 			<h1 class="text-xl font-bold">{name}</h1>
 			<p>{bio}</p>
+			<!-- feel free to email me lolol -->
 			{#if data.user.email === 'leanghokoeng5@gmail.com'}
 				<div class="badge badge-primary">comfi developer</div>
+			{/if}
+			{#if data.user.email === 'failedlabexperiment' || data.user.email === 'failedlabexperiment2nd'}
+				<div class="badge badge-primary">failed lab experiment</div>
 			{/if}
 			<h2 class="mt-3 text-xl font-bold">Posts</h2>
 			<div class="posts space-y-5">
