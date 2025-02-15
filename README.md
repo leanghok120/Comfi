@@ -12,6 +12,6 @@
 - [x] add userId to posts
 - [x] add bio
 - [x] add editing own profile
-- [ ] add viewing other users profile
+- [x] add viewing other users profile
 - [ ] lowercasemaxxing
 - [ ] clean up auth and ui
