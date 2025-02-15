@@ -5,7 +5,7 @@
 	const session = authClient.useSession();
 </script>
 
-<div class="dock dock-md">
+<div class="dock dock-md border-base-200 bg-base-100 border-t-4">
 	<a href="/" class="dock-label">
 		<HomeIcon />
 		<span class="dock-label">Home</span>
