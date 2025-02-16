@@ -111,7 +111,7 @@
 				{#each data.posts as post}
 					<div class="card bg-base-200 card-sm w-full shadow-sm">
 						<figure class="px-10 pt-10">
-							<img src={post.imageUrl} alt={post.title} class="rounded-xl" />
+							<img src={post.imageUrl} alt={post.title} class="rounded-xl" loading="lazy" />
 						</figure>
 						<div class="card-body items-center text-center">
 							<h2 class="card-title">{post.title}</h2>

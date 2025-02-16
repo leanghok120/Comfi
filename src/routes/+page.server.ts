@@ -9,5 +9,5 @@ export const load: PageServerLoad = async () => {
 		with: { user: true }
 	});
 
-	return { posts };
+	return { posts, maxage: 60 };
 };

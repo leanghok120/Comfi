@@ -13,5 +13,5 @@
 - [x] add bio
 - [x] add editing own profile
 - [x] add viewing other users profile
-- [ ] lowercasemaxxing
-- [ ] clean up auth and ui
+- [ ] improve performance
+- [ ] add more auth options

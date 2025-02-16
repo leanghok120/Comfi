@@ -16,5 +16,5 @@ export const load: PageServerLoad = async ({ params }) => {
 		where: eq(post.userId, params.userId),
 		orderBy: desc(post.createdAt)
 	});
-	return { posts, user };
+	return { posts, user, maxage: 60 };
 };
