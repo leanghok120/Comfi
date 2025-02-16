@@ -13,5 +13,5 @@
 - [x] add bio
 - [x] add editing own profile
 - [x] add viewing other users profile
-- [ ] improve performance
+- [x] improve performance
 - [ ] add more auth options
