@@ -23,6 +23,10 @@
 
 <svelte:head>
 	<title>comfi</title>
+	<meta name="description" content="A small cozy cozy room on the internet for yappers." />
+	<meta property="og:title" content="comfi" />
+	<meta property="og:description" content="A small cozy cozy room on the internet for yappers." />
+	<meta property="og:url" content="https://comfi.vercel.app" />
 </svelte:head>
 
 <div class="min-h-screen max-w-full">
